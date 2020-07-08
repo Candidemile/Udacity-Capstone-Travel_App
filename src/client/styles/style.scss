@@ -1,120 +1,67 @@
+/* IMPORT */
+@import 'style-header.css';
+@import 'style-sidebar.css';
+@import 'style-content.css';
+@import 'style-footer.css';
+
+/* MAIN SETTINGS */
 body {
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Armata', sans-serif;
+    font-size: calc(12px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    background-color: #003049;
+    display: grid;
+    grid-template-columns: 30vh repeat(3, 1fr);
+    grid-template-rows: minmax(auto, 15vh) minmax(4fr, auto) minmax(auto, 15vh);
+    grid-template-areas: "hd hd hd hd" "sd main main main" "ft ft ft ft";
 }
 
-#app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* display: grid; */
-    /* grid-auto-rows: minmax(150px, auto);
-    grid-template-columns: 1fr 1fr; */
-    height: 100vh;
-    background: #f23557;
-    color: #f0d43a;
-    /* justify-content: center; */
-    /* grid-gap: 1em; */
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-
-#app * {
+.dark {
+    color: #003049;
     text-align: center;
 }
 
-.holder {
-    width: 50vw;
-    margin: 10px;
+.light {
+    color: #fcbf49;
+    text-decoration: none;
 }
 
-.holder * {
-    align-self: center;
-    margin: 5px auto;
+/* MEDIA */
+@media (max-width: 600px) {
+    body {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 15vh minmax(30vh, auto) 4fr 15vh;
+        grid-template-areas: "hd" "sd" "main" "ft";
+    }
+
+    .content * {
+        width: 90%;
+        font-size: 1.5rem;
+    }
+
+    .content h3 a {
+        font-size: 1rem;
+    }
+
+    .sidebar {
+        font-size: 1rem;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    .blogposts {
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
-.entry {
-    background: rgba(59, 74, 107, .4);
-}
-
-#entryHolder {
-}
-
-#date {
-}
-
-#temp {
-}
-
-#content {
-}
-
-.headline {
-    font-size: 3rem;
-}
-.title {
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label {
-    display: block;
-    font-size: 27px;
-}
-
-input {
-    display: block;
-    height: 60px;
-    width: 320px;
-    background: #22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-}
-
-button {
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-h1 {
-    font-size: 36px;
-}
-
-textarea {
-    background: #22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder {
-    /* Firefox, Chrome, Opera */
-    color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
-}
-
-:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
-}
-
-::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
+@media (orientation: landscape) and (max-width: 900px) {
+    .content * {
+        font-size: 0.8rem;
+    }
+    .sidebar * {
+        font-size: 0.6rem;
+    }
 }

@@ -1,0 +1,23 @@
+/* SIDEBAR */
+.sidebar {
+    background-color: #003049;
+    grid-area: sd;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.sidebar > .box {
+    padding: 1vh 5vh;
+    margin: 1vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    background-color: #fcbf49;
+    color: #003049;
+    border-radius: 1vh 6vh;
+}
