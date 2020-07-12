@@ -8,7 +8,7 @@
         "watch:test": "jest --watch",
         "start": "node src/server/index.js",
         "build": "webpack --config webpack.prod.js",
-        "dev": "webpack-dev-server  --config webpack.dev.js --open"
+        "dev": "webpack-dev-server  --config webpack.dev.js --open --verbose"
     },
     "repository": {
         "type": "git",
