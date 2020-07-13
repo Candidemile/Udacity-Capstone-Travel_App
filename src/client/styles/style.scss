@@ -1,4 +1,9 @@
+// add stylesheets
 @use 'main';
+
+// add fonts
+@import url("https://fonts.googleapis.com/css2?family=Armata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;0,900;1,200;1,400&display=swap");
 
 /* MAIN SETTINGS */
 // body {
@@ -10,7 +15,6 @@
 //     grid-template-rows: auto;
 //     grid-template-areas: "hd" "main" "ft";
 // }
-
 
 /* CONTENT */
 // .content {

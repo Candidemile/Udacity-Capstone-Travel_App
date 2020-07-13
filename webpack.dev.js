@@ -7,11 +7,12 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'eval-cheap-module-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000
+        port: 9000,
+        stats: 'minimal'
     },
     stats: 'verbose',
     output: {

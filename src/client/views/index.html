@@ -12,12 +12,12 @@
     </header>
 
     <main>
-        <section class="form content">
-            <form class="form" onsubmit="" method="post" action="/form">
-                <input type="text" name="departure" id="" placeholder="departure" required>
-                <input type="text" name="destination" id="" placeholder="destination" required>
-                <input type="date" name="date" id="">
-                <input type="submit" value="Submit" required>
+        <section class="content">
+            <form class="form content" onsubmit="return Client.handleSubmit(event)" method="post" action="/form" target="_blank">
+                <input type="text" name="departure" id="departure" placeholder="departure" required>
+                <input type="text" name="destination" id="destination" placeholder="destination" required>
+                <input type="date" name="date" id="date">
+                <input type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)" value="Submit" required>
             </form>
         </section>
 

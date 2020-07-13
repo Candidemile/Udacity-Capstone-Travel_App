@@ -1,10 +1,6 @@
-/* Global Variables */
-
-// Event listener to add function to existing HTML DOM element
-document.getElementById('generate').addEventListener('click', main);
 
 /* Function called by event listener */
-function main() {
+function main(event) {
     getOpenWeatherData().then((weatherData) => postOpenWeatherData(weatherData)).then((data) => updateUI(data));
 }
 /* Function to GET Web API Data*/
@@ -54,10 +50,4 @@ const postOpenWeatherData = async (weatherData) => {
         console.log('That is the error: ', error);
     }
 };
-/* Function to update UI */
-const updateUI = (data) => {
-    document.getElementById('date').innerHTML = `<h3>${data.date}</h3>`;
-    document.getElementById('temp').innerHTML = `<h3>${data.temperature}</h3>`;
-    document.getElementById('content').innerHTML = `<h3>${data.user_response}</h3>`;
-    document.getElementById('city').innerHTML = `<h3>${data.city}</h3>`;
-};
+
