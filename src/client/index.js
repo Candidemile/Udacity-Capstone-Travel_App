@@ -1,5 +1,7 @@
 import './styles/normalize.scss';
-import './styles/blog-post.scss';
+import './styles/style.scss';
+import './styles/_main.scss';
+
 // import './styles/style.scss';
 // import './styles/style-content.scss';
 // import './styles/style-footer.scss';
