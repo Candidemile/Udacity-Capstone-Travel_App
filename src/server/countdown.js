@@ -4,7 +4,7 @@ const countdown = (travelDate) => {
     travelDate = new Date(travelDate);
     let differentInMilliseconds = travelDate - currentDate;
     let countdown = differentInMilliseconds / 1000 / 60 / 60 / 24;
-    return Math.floor(countdown);
+    return Math.round(countdown);
 };
 
 module.exports = countdown;

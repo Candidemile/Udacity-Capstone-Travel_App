@@ -9,7 +9,7 @@ const fetchGeonamesApi = async (city = '') => {
 
     if (response.ok) {
         let data = await response.json();
-        console.log(data, data.geonames);
+        // console.log(data, data.geonames);
         if (data.geonames.length > 0) {
             data = data.geonames[0];
             return {

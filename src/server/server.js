@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const countdown = require('./countdown');
 const fetchGeonamesApi = require('./geonamesAPI');
 const restcountriesApi = require('./restcountriesAPI');
+const fetchWeatherbitApi = require('./weatherbitAPI');
 
 // variables: trip details, env variables
 const trip = {
@@ -18,11 +19,12 @@ const trip = {
         latitude: '',
         longitude: ''
     },
+    date: '',
     countdown: 'no data',
     weather: {
-        min: '10',
-        max: '30',
-        precipitation: 'cloudy'
+        temperature: '',
+        icon: '',
+        description: 'cloudy'
     },
     flight: {
         minprice: '100',
@@ -51,8 +53,9 @@ app.listen(8081, function() {
 // post request about trip
 app.post('/trip', async (req, res) => {
     console.log(req.body);
-    // set departure city
+    // set departure city and date
     trip.departure = req.body.departure;
+    trip.date = req.body.date;
     // get countdown number
     trip.countdown = countdown(req.body.date).toString();
     // fetch destination data by GeonamesAPI
@@ -64,6 +67,11 @@ app.post('/trip', async (req, res) => {
     // console.log('destination data:\n', destinationData);
     // fetch country using country_code by Rest Countries API
     trip.destination.country = await restcountriesApi(trip.destination.country_code);
+    // fetch weather data from weatherbit API
+    let weatherData = await fetchWeatherbitApi(trip.destination.latitude, trip.destination.longitude, req.body.date);
+    trip.weather.temperature = weatherData.temperature;
+    trip.weather.icon = weatherData.weather_icon;
+    trip.weather.description = weatherData.weather_description;
 
     console.log(trip);
 
