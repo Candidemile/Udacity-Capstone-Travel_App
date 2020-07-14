@@ -6,7 +6,7 @@
     "scripts": {
         "test": "jest",
         "watch:test": "jest --watch",
-        "start": "node src/server/index.js",
+        "start": "node src/server/server.js",
         "build": "webpack --config webpack.prod.js",
         "dev": "webpack-dev-server  --config webpack.dev.js --open"
     },
