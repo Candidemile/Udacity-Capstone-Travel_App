@@ -1,5 +1,7 @@
 // fetch geonames API with city and get latitude, longitude, country
-export const fetchGeonamesApi = async (city) => {
+const fetch = require('node-fetch');
+
+const fetchGeonamesApi = async (city = '') => {
     const url = 'http://api.geonames.org/wikipediaSearchJSON?username=candid_emile&q=';
 
     let response = await fetch(url + city);
@@ -7,17 +9,25 @@ export const fetchGeonamesApi = async (city) => {
 
     if (response.ok) {
         let data = await response.json();
-        console.log(data.geonames);
-        if (data != []) {
+        console.log(data, data.geonames);
+        if (data.geonames.length > 0) {
             data = data.geonames[0];
             return {
                 latitude: data.lat.toFixed(2),
                 longitude: data.lng.toFixed(2),
-                country: data.countryCode,
+                country_code: data.countryCode,
                 city: data.title
             };
         }
     } else {
         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
     }
+    return {
+        latitude: 'no data',
+        longitude: 'no data',
+        country_code: 'no data',
+        city: 'no data'
+    };
 };
+
+module.exports = fetchGeonamesApi;

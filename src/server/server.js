@@ -5,14 +5,17 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 // import required functions
 const countdown = require('./countdown');
+const fetchGeonamesApi = require('./geonamesAPI');
 
 // variables: trip details, env variables
 const trip = {
     departure: 'from',
     destination: {
         city: 'to',
-        country: 'eldorado',
-        country_code: ''
+        country: '',
+        country_code: '',
+        latitude: '',
+        longitude: ''
     },
     countdown: 'no data',
     weather: {
@@ -47,8 +50,16 @@ app.listen(8081, function() {
 // post request about trip
 app.post('/trip', async (req, res) => {
     console.log(req.body);
-
-    trip.countdown = await countdown(req.body.date);
+    // get countdown number
+    trip.countdown = countdown(req.body.date).toString();
+    // fetch destination data by GeonamesAPI
+    let destinationData = await fetchGeonamesApi(req.body.destination);
+    trip.destination.city = destinationData.city;
+    trip.destination.country_code = destinationData.country_code;
+    trip.destination.latitude = destinationData.latitude;
+    trip.destination.longitude = destinationData.longitude;
+    // console.log('destination data:\n', destinationData);
+    // fetch country using country_code by Rest Countries API
 
     console.log(trip);
 
