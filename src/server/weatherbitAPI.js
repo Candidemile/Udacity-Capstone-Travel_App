@@ -14,7 +14,7 @@ const fetchWeatherbitApi = async (latitude, longitude, date) => {
 
     if (response.ok) {
         let data = await response.json();
-        console.log(data);
+        // console.log(data);
         return {
             temperature: data.data[0].temp,
             weather_icon: 'https://www.weatherbit.io/static/img/icons/' + data.data[0].weather.icon + '.png',

@@ -8,6 +8,7 @@ const countdown = require('./countdown');
 const fetchGeonamesApi = require('./geonamesAPI');
 const restcountriesApi = require('./restcountriesAPI');
 const fetchWeatherbitApi = require('./weatherbitAPI');
+const fetchPixabayApi = require('./pixabayAPI');
 
 // variables: trip details, env variables
 const trip = {
@@ -72,6 +73,8 @@ app.post('/trip', async (req, res) => {
     trip.weather.temperature = weatherData.temperature;
     trip.weather.icon = weatherData.weather_icon;
     trip.weather.description = weatherData.weather_description;
+    // fetch image url from pixabay API
+    trip.image = await fetchPixabayApi(req.body.destination, '');
 
     console.log(trip);
 
