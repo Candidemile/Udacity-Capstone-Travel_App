@@ -10,7 +10,7 @@ const fetchWeatherbitApi = async (latitude, longitude, date) => {
     url = `${url}key=${apikey}&lat=${latitude}&lon=${longitude}&start_date=${lastYearDate}:12&end_date=${lastYearDate}:13`;
 
     let response = await fetch(url);
-    console.log(response.status, response.statusText, response.ok);
+    console.log('Weatherbit API:', response.status, response.statusText, response.ok);
 
     if (response.ok) {
         let data = await response.json();

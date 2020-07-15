@@ -5,7 +5,7 @@ const fetchGeonamesApi = async (city = '') => {
     const url = 'http://api.geonames.org/wikipediaSearchJSON?username=candid_emile&q=';
 
     let response = await fetch(url + city);
-    console.log(response.status, response.statusText, response.ok);
+    console.log('Geonames API: ', response.status, response.statusText, response.ok);
 
     if (response.ok) {
         let data = await response.json();

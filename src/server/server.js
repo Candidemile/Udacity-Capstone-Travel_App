@@ -9,6 +9,7 @@ const fetchGeonamesApi = require('./geonamesAPI');
 const restcountriesApi = require('./restcountriesAPI');
 const fetchWeatherbitApi = require('./weatherbitAPI');
 const fetchPixabayApi = require('./pixabayAPI');
+const getFlightPrice = require('./skyscannerAPI');
 
 // variables: trip details, env variables
 const trip = {
@@ -25,13 +26,14 @@ const trip = {
     weather: {
         temperature: '',
         icon: '',
-        description: 'cloudy'
+        description: ''
     },
     flight: {
-        minprice: '100',
-        carrier: 'horns'
+        price: '',
+        carrier: '',
+        direct: ''
     },
-    image: 'some URL'
+    image: ''
 };
 
 dotenv.config();
@@ -73,8 +75,15 @@ app.post('/trip', async (req, res) => {
     trip.weather.temperature = weatherData.temperature;
     trip.weather.icon = weatherData.weather_icon;
     trip.weather.description = weatherData.weather_description;
-    // fetch image url from pixabay API
+    // fetch image url by pixabay API
     trip.image = await fetchPixabayApi(req.body.destination, '');
+    // fetch flight data by skyscannerAPI
+    let flightData = await getFlightPrice(req.body.departure, req.body.destination, req.body.date);
+    trip.flight.price = flightData.price;
+    trip.flight.carrier = flightData.carrier;
+    trip.flight.direct = flightData.direct;
+    console.log(flightData);
+    // fetch COVID data by covidAPI
 
     console.log(trip);
 
