@@ -22,7 +22,7 @@ const trip = {
         longitude: ''
     },
     date: '',
-    countdown: 'no data',
+    countdown: '',
     weather: {
         temperature: '',
         icon: '',
@@ -82,7 +82,6 @@ app.post('/trip', async (req, res) => {
     trip.flight.price = flightData.price;
     trip.flight.carrier = flightData.carrier;
     trip.flight.direct = flightData.direct;
-    console.log(flightData);
     // fetch COVID data by covidAPI
 
     console.log(trip);

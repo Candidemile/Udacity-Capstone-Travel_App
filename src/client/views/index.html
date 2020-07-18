@@ -1,55 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel App</title>
-    
+
 </head>
+
 <body>
-    <header class="box">
-        <h1 class="box light">Travel App</h1>
+    <header class="">
+        <h1 class="light">Travel App</h1>
     </header>
 
     <main>
         <section class="content">
-            <form class="form content" onsubmit="return Client.handleSubmit(event)" method="post" action="/form" target="_blank">
+            <form class="form content" onsubmit="return Client.handleSubmit(event)" method="post" action="/trip"
+                target="_blank">
                 <input type="text" name="departure" id="departure" placeholder="departure" required>
                 <input type="text" name="destination" id="destination" placeholder="destination" required>
                 <input type="date" name="date" id="date">
-                <input type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)" value="Submit" required>
+                <input type="submit" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)" value="Submit" required>
             </form>
         </section>
 
-        
+        <section class="content">
+            <!-- New Trip -->
+            <article id="loading" class="content hide">
+                <img src="https://media.giphy.com/media/cIbJ5bBlNLxynVGYzb/giphy.gif" alt="">
+            </article>
+            <article id="new-trip" class="trip content hide">
+                <h3 class="dark">My trip to:</h3>
+                <h3 id="new-trip-destination" class="dark"></h3>
+                <h3 id="new-trip-date" class="dark"></h3>
+                <p id="new-trip-countdown" class="dark"></p>
+                <figure>
+                    <img id="new-trip-image" src="http://placecorgi.com/250" alt="image">
+                    <figcaption id="new-trip-image-text"></figcaption>
+                </figure>
 
+                <aside class="weather">
+                    <p id="new-trip-weather">weather</p>
+                    <img id="new-trip-image" src="http://placecorgi.com/250" alt="image">
+                </aside>
+
+                <aside class="flight">
+                    <h3 class="dark">Flight details:</h3>
+                    <p id="new-trip-flight"></p>
+                </aside>
+            </article>
+        </section>
+
+        <!-- Trip Template -->
+        <template id="trip-template">
+            <article id="trip1" class="trip content">
+                <h3 class="dark">My trip to:</h3>
+                <h3 class="dark destination">Chicago, United States of America</h3>
+                <h3 class="dark date">Departing: 2020-07-24</h3>
+                <p class="dark countdown">5 days left</p>
+                <figure class="content trip-image">
+                    <img src="" alt="image">
+                    <figcaption></figcaption>
+                </figure>
+                <aside class="weather">
+                    <p>Typical weather for that day is: 18.3C, Clear Sky</p>
+                    <img src="" alt="image">
+                </aside>
+                <aside class="flight content">
+                    <h3 class="dark">Flight details:</h3>
+                    <p>859$ - minimum price, Turkish Airlines, direct - false</p>
+                </aside>
+            </article>
+        </template>
+        <!-- Trips -->
         <section class="trips content">
-            <article class="trip content">
-                <h3 class="dark">TRIP</h3>
-                <h3 class="dark">Trip to..</h3>
-                <p class="dark">details about the trip: days left, flight price, weather, risk and so on</p>
-                <figure>
-                    <img src="http://placecorgi.com/250" alt="image">
-                    <figcaption>trip photo</figcaption>
+            <article id="trip1" class="trip content">
+                <h3 class="dark">My trip to:</h3>
+                <h3 class="dark">Chicago, United States of America</h3>
+                <h3 class="dark">Departing: 2020-07-24</h3>
+                <p class="dark">5 days left</p>
+                <figure class="content">
+                    <img src="https://media.timeout.com/images/105383118/1372/772/image.jpg" alt="image">
+                    <figcaption></figcaption>
                 </figure>
+                <aside class="weather">
+                    <p>Typical weather for that day is: 18.3C, Clear Sky</p>
+                    <img src="https://www.weatherbit.io/static/img/icons/c04d.png" alt="image">
+                </aside>
+                <aside class="flight content">
+                    <h3 class="dark">Flight details:</h3>
+                    <p>859$ - minimum price, Turkish Airlines, direct - false</p>
+                </aside>
             </article>
-            <article class="trip content">
-                <h3 class="dark">TRIP</h3>
-                <h3 class="dark">Trip to..</h3>
-                <p class="dark">details about the trip: days left, flight price, weather, risk and so on</p>
+
+            <article id="trip2" class="trip content">
+                <h3 class="dark">My trip to:</h3>
+                <h3 class="dark"></h3>
+                <h3 class="dark"></h3>
+                <p class="dark"></p>
                 <figure>
                     <img src="http://placecorgi.com/250" alt="image">
-                    <figcaption>trip photo</figcaption>
+                    <figcaption"></figcaption>
                 </figure>
+
+                <aside class="weather">
+                    <p>weather</p>
+                    <img src="http://placecorgi.com/250" alt="image">
+                </aside>
+
+                <aside class="flight">
+                    <h3 class="dark">Flight details:</h3>
+                    <p></p>
+                </aside>
             </article>
-            <article class="trip content">
-                <h3 class="dark">TRIP</h3>
-                <h3 class="dark">Trip to..</h3>
-                <p class="dark">details about the trip: days left, flight price, weather, risk and so on</p>
+
+            <article id="trip3" class="trip content">
+                <h3 class="dark">My trip to:</h3>
+                <h3 class="dark"></h3>
+                <h3 class="dark"></h3>
+                <p class="dark"></p>
                 <figure>
                     <img src="http://placecorgi.com/250" alt="image">
-                    <figcaption>trip photo</figcaption>
+                    <figcaption></figcaption>
                 </figure>
+
+                <aside class="weather">
+                    <p>weather</p>
+                    <img src="http://placecorgi.com/250" alt="image">
+                </aside>
+
+                <aside class="flight">
+                    <h3 class="dark">Flight details:</h3>
+                    <p></p>
+                </aside>
             </article>
         </section>
     </main>
@@ -57,6 +141,7 @@
     <footer class="box">
         <h1 class="box light">© Candid</h1>
     </footer>
-    
+
 </body>
+
 </html>

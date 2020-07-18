@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 
 const fetchGeonamesApi = async (city = '') => {
-    const url = 'http://api.geonames.org/wikipediaSearchJSON?username=candid_emile&q=';
+    const url = 'http://api.geonames.org/search?username=candid_emile&type=json&name=';
 
     let response = await fetch(url + city);
     console.log('Geonames API: ', response.status, response.statusText, response.ok);
@@ -13,10 +13,10 @@ const fetchGeonamesApi = async (city = '') => {
         if (data.geonames.length > 0) {
             data = data.geonames[0];
             return {
-                latitude: data.lat.toFixed(2),
-                longitude: data.lng.toFixed(2),
+                latitude: data.lat.slice(0, 6),
+                longitude: data.lng.slice(0, 6),
                 country_code: data.countryCode,
-                city: data.title
+                city: data.name
             };
         }
     } else {

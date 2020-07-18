@@ -31,7 +31,6 @@ body {
     /* HEADER */
     header {
         background-color: #003049;
-        grid-area: hd;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -39,6 +38,7 @@ body {
 
         * {
             font-size: 1.5rem;
+            margin: 0.5rem 0;
         }
     }
 
@@ -71,10 +71,45 @@ body {
             border: $dark-color 5px solid;
             border-radius: 30px;
             margin: 0.5em auto;
+            color: #003049;
+
+            * {
+                width: 80%;
+                margin: 0;
+            }
+
+            .weather {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin: 0.5rem 0;
+
+                p {
+                    // display: inline-block;
+                    // width: 50%;
+                }
+
+                img {
+                    // display: inline-block;
+                    width: 20%;
+                }
+            }
+
+            .flight {
+                * {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
 
             img {
-                width: 50vw;
+                width: 60vw;
+                border-radius: 30px;
             }
+        }
+        .hide {
+            display: none;
         }
     }
 
@@ -84,6 +119,10 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .trip-new {
+        // display: none;
     }
 
     /* FOOTER */

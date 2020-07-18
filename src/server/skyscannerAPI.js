@@ -53,7 +53,7 @@ const getFlightPrice = async (from, to, date) => {
 
     if (response.ok) {
         let data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (data.Quotes.length > 0) {
             let price = data.Quotes[0].MinPrice;
             let direct = data.Quotes[0].Direct;

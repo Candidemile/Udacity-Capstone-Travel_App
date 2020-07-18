@@ -10,14 +10,6 @@ export const fetchCovidApi = async (country) => {
         let len = data.length;
         // console.log(data);
         return data[len - 1];
-        // if (data != []) {
-        //     data = data.geonames[0];
-        //     return {
-        //         latitude: data.lat.toFixed(2),
-        //         longitude: data.lng.toFixed(2),
-        //         country: data.countryCode
-        //     };
-        // }
     } else {
         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
     }

@@ -1,15 +1,22 @@
-function handleSubmit(event) {
+import './app';
+import fetchTripData from './app';
+import './displayNewTrip';
+import { updateUI } from './displayNewTrip';
+
+async function handleSubmit(event) {
     console.log('::: Starting Form Validation :::');
-
     event.preventDefault();
-
     // get input from the form
     let departure = document.getElementById('departure').value;
     let destination = document.getElementById('destination').value;
     let date = document.getElementById('date').value;
-
+    let data = {
+        departure: departure,
+        destination: destination,
+        date: date
+    };
+    let trip = {};
     console.log(departure, destination, date);
-
     // Validate input
     const reg = /[a-zA-Z]+/;
     const regDate = /^(202\d{1})-(\d{1,2})-(\d{1,2})$/g;
@@ -25,7 +32,21 @@ function handleSubmit(event) {
         return false;
     }
 
+    // activate loaging gif
+    document.getElementById('loading').classList.remove('hide');
+    // hide loading gif
+    // setTimeout(() => {
+    //     document.getElementById('loading').classList.add('hide');
+    // }, 3000);
+
     console.log('::: Form is valid :::\n::: Form is Submitted :::');
+    fetchTripData(data).then((res) => {
+        document.getElementById('loading').classList.add('hide');
+        console.log(res);
+        updateUI(res);
+    });
+    // const res = await fetchTripData(data);
+    // console.log(res);
 }
 
 export { handleSubmit };
