@@ -4,27 +4,34 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
+console.log(path.resolve(__dirname, 'dist/'));
+
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'eval-cheap-module-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 9000,
-        stats: 'minimal'
-    },
-    stats: 'verbose',
     output: {
+        path: path.resolve(__dirname, 'dist/'),
+        publicPath: 'http://localhost:9000',
         libraryTarget: 'var',
         library: 'Client'
     },
+    devServer: {
+        contentBase: path.join(__dirname, 'src'),
+        watchContentBase: true,
+        compress: true,
+        port: 9000,
+        stats: 'minimal',
+        inline: true,
+        hot: true
+    },
+    stats: 'verbose',
     module: {
         rules: [
             {
                 test: '/.js$/',
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: [ 'babel-loader', 'eslint-loader' ]
             },
             {
                 test: /\.scss$/,
