@@ -1,7 +1,7 @@
-import './app';
 import fetchTripData from './app';
 import { displayNewSearch } from './displayNewSearch';
 
+// function that handles new search submit
 async function handleSubmit(event) {
     console.log('::: Starting Form Validation :::');
     event.preventDefault();

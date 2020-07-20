@@ -20,7 +20,11 @@ const getFlightPrice = async (from, to, date) => {
         if (response.ok) {
             let data = await response.json();
             // console.log(data);
-            return data.Places[0];
+            if (data.length > 0) {
+                return data.Places[0];
+            } else {
+                return 'no data';
+            }
         } else {
             console.log(`ERROR: code ${response.status} ${response.statusText}.`);
         }
@@ -29,14 +33,26 @@ const getFlightPrice = async (from, to, date) => {
     // This function returns PlaceIDs for two cities
     const convert = async (departure, destination) => {
         let from, to;
+
         from = await getPlaceID(departure);
         to = await getPlaceID(destination);
+        if (from == 'no data' || to == 'no data') {
+            return 'no data';
+        }
         return [ from.CityId, to.CityId ];
     };
 
     // main body of the function
     let key = 'f6a641105amsh3901a1f0f0ca125p1afce6jsnb6d0dd468558';
     let places = await convert(from, to);
+    if (places == 'no data') {
+        return {
+            price: 'no data',
+            carrier: 'no data',
+            direct: 'no data'
+        };
+    }
+    // console.log(places);
     let departure = places[0];
     let destination = places[1];
     let url = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${departure}/${destination}/${date}`;

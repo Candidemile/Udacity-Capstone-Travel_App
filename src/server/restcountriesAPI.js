@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-
+// This function gets country data with country code from RestCountries API and returns country name and population
 const restcountriesApi = async (code = '') => {
     const url = 'https://restcountries.eu/rest/v2/alpha/';
 
@@ -9,7 +9,10 @@ const restcountriesApi = async (code = '') => {
     if (response.ok) {
         let data = await response.json();
 
-        return data.name;
+        return {
+            country: data.name,
+            population: data.population
+        };
     } else {
         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
     }

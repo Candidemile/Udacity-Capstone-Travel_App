@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
-console.log(path.resolve(__dirname, 'dist/'));
+// console.log(path.join(__dirname, 'src'));
 
 module.exports = {
     entry: './src/client/index.js',

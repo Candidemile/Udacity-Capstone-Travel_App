@@ -10,6 +10,7 @@ const restcountriesApi = require('./restcountriesAPI');
 const fetchWeatherbitApi = require('./weatherbitAPI');
 const fetchPixabayApi = require('./pixabayAPI');
 const getFlightPrice = require('./skyscannerAPI');
+const covid = require('./covidAPI');
 
 // variables: trip details, env variables
 const trip = {
@@ -19,7 +20,8 @@ const trip = {
         country: '',
         country_code: '',
         latitude: '',
-        longitude: ''
+        longitude: '',
+        population: ''
     },
     date: '',
     countdown: '',
@@ -33,7 +35,11 @@ const trip = {
         carrier: '',
         direct: ''
     },
-    image: ''
+    image: '',
+    covid: {
+        growth: '',
+        level: ''
+    }
 };
 
 dotenv.config();
@@ -69,9 +75,13 @@ app.post('/trip', async (req, res) => {
     trip.destination.longitude = destinationData.longitude;
     // console.log('destination data:\n', destinationData);
     // fetch country using country_code by Rest Countries API
-    trip.destination.country = await restcountriesApi(trip.destination.country_code);
+    let countryData = await restcountriesApi(trip.destination.country_code);
+    trip.destination.country = countryData.country;
+    trip.destination.population = countryData.population;
     // fetch weather data from weatherbit API
-    let weatherData = await fetchWeatherbitApi(trip.destination.latitude, trip.destination.longitude, req.body.date);
+    console.log(trip);
+    let weatherData = await fetchWeatherbitApi(trip.destination.latitude, trip.destination.longitude, trip.date);
+    console.log(weatherData);
     trip.weather.temperature = weatherData.temperature;
     trip.weather.icon = weatherData.weather_icon;
     trip.weather.description = weatherData.weather_description;
@@ -83,6 +93,11 @@ app.post('/trip', async (req, res) => {
     trip.flight.carrier = flightData.carrier;
     trip.flight.direct = flightData.direct;
     // fetch COVID data by covidAPI
+    console.log(trip);
+    let covidData = await covid.fetchCovidApi(trip.destination.country);
+    console.log(covidData, trip.destination.population);
+    trip.covid.growth = covid.getCovidGrowthLevel(covidData);
+    trip.covid.level = covid.getCovidRiskLevel(covidData, trip.destination.population);
 
     console.log(trip);
 

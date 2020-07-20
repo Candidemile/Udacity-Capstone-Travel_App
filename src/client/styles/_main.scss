@@ -12,7 +12,7 @@ body {
 
     font-family: $main-font;
     font-size: calc(12px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    background-color: $light-color;
+    background-color: $border-color;
     // display: grid;
     // grid-template-columns: auto;
     // grid-template-rows: auto;
