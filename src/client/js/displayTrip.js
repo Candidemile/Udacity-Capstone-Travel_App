@@ -19,11 +19,11 @@ export const displayTrip = (trip) => {
     tripDetails[6].children[1].textContent = `minimum price is ${trip.flight.price}$,\n
     airline - ${trip.flight.carrier},\n ${trip.flight.direct ? 'direct' : 'not direct'}`;
     // set covid
-    tripDetails[6].children[1].textContent = `${trip.destination.country} has ${trip.covid
+    tripDetails[7].children[1].textContent = `${trip.destination.country} has ${trip.covid
         .level} level of COVID-19 on ${new Date().toString().slice(4, 15)}`;
-    tripDetails[6].children[2].value = 50;
-    tripDetails[6].children[2].textContent = '50%';
-    tripDetails[6].children[3].textContent = `The growth rate is ${trip.covid.growth}`;
+    tripDetails[7].children[2].value = 50;
+    tripDetails[7].children[2].textContent = '50%';
+    tripDetails[7].children[3].textContent = `The growth rate is ${trip.covid.growth}`;
     // add saved trip to the web page
     let trips = document.getElementsByClassName('trips')[0];
     trips.appendChild(template);

@@ -20,7 +20,7 @@ const getFlightPrice = async (from, to, date) => {
         if (response.ok) {
             let data = await response.json();
             // console.log(data);
-            if (data.length > 0) {
+            if (data.Places.length > 0) {
                 return data.Places[0];
             } else {
                 return 'no data';

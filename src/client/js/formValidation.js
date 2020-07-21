@@ -1,5 +1,6 @@
 import fetchTripData from './app';
 import { displayNewSearch } from './displayNewSearch';
+import { saveTrip } from './displayTrips';
 
 // function that handles new search submit
 async function handleSubmit(event) {
@@ -14,6 +15,7 @@ async function handleSubmit(event) {
         destination: destination,
         date: date
     };
+    let trip;
     console.log(departure, destination, date);
     // Validate input
     const reg = /[a-zA-Z]+/;
@@ -42,9 +44,15 @@ async function handleSubmit(event) {
         document.getElementById('loading').classList.add('hide');
         console.log(res);
         displayNewSearch(res);
+        trip = res;
     });
-    // const res = await fetchTripData(data);
-    // console.log(res);
+    // function to handle save
+    const save = () => {
+        console.log(document.getElementsByClassName('save')[0]);
+        saveTrip(trip);
+        document.getElementById('new-trip').classList.add('hide');
+    };
+    document.getElementsByClassName('save')[0].addEventListener('click', save);
 }
 
 export { handleSubmit };
