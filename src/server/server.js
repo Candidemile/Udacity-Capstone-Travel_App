@@ -54,7 +54,8 @@ app.use(bodyParser.json());
 console.log(__dirname);
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function() {
+const port = process.env.PORT || 80;
+app.listen(port, function() {
     console.log('Travel App is listening on port 8081!');
     console.log('Base trip variable:\n', trip);
 });

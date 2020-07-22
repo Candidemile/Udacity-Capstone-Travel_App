@@ -10,7 +10,7 @@ const fetchTripData = async (data) => {
         body: JSON.stringify(data)
     };
     // console.log(JSON.stringify(data));
-    const url = 'http://localhost:8081/trip';
+    const url = 'http://localhost:80/trip';
     console.log('Creating promise');
     const response = await fetch(url, reqBodyForPost);
     try {
