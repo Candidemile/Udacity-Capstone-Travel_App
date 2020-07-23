@@ -1,36 +1,45 @@
 // variables
-$dark-color: #003049;
-$light-color: #fcbf49;
+// $dark-color: #003049;
+// $light-color: #fcbf49;
+// $border-color: #eae2b7;
+// $extra-color: #00304975;
+// $highlight-color: #f77f00;
+// $main-font: "Armata", sans-serif;
+
+$dark-color: #5e6472;
+$light-color: #faf3dd;
 $border-color: #eae2b7;
-$extra-color: #00304975;
-$highlight-color: #f77f00;
+$extra-color: #ffa69e;
+$highlight-color: #b8f2e6;
+$aux-color: #aed9e0;
 $main-font: "Armata", sans-serif;
 
 /* BODY Styles */
 body {
-    // border: 1px red solid;
-
     font-family: $main-font;
-    font-size: calc(12px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    background-color: $border-color;
-    // display: grid;
-    // grid-template-columns: auto;
-    // grid-template-rows: auto;
-    // grid-template-areas: "hd" "main" "ft";
+    background-color: $light-color;
 
     .dark {
-        color: #003049;
+        color: $dark-color;
         text-align: center;
     }
 
     .light {
-        color: #fcbf49;
+        color: $light-color;
         text-decoration: none;
     }
 
+    .bold {
+        font-weight: bold;
+    }
+
+    // .highlight {
+    //     color: $extra-color;
+    // }
+
     /* HEADER */
     header {
-        background-color: #003049;
+        background-color: $dark-color;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -48,6 +57,7 @@ body {
         border: $dark-color 5px solid;
         border-radius: 30px;
         margin: 0.5em auto;
+        background-color: $border-color;
 
         input {
             padding: 0.5em 0.5em;
@@ -56,6 +66,29 @@ body {
             border-radius: 30px;
             width: 50vw;
             margin: 0.5em 0;
+
+            &:focus {
+                background-color: $light-color;
+            }
+        }
+
+        .button {
+            background-color: $highlight-color;
+            transition: background-color 2s;
+            padding: 0.5em 0.5em;
+            margin: 0.5em auto;
+            border: $dark-color 3px solid;
+            border-radius: 30px;
+            width: 50vw;
+            margin: 0.5em 0;
+
+            &:hover {
+                border-color: $extra-color;
+            }
+
+            &:active {
+                background-color: $extra-color;
+            }
         }
     }
 
@@ -67,15 +100,42 @@ body {
         justify-content: center;
 
         article {
-            width: 80vw;
+            width: 90vw;
             border: $dark-color 5px solid;
             border-radius: 30px;
             margin: 0.5em auto;
-            color: #003049;
+            color: $dark-color;
+            background-color: $border-color;
+
+            p {
+                margin-top: 0.5em;
+            }
+
+            aside {
+                padding: 0.3em;
+            }
 
             * {
-                width: 80%;
+                width: 90%;
                 margin: 0;
+            }
+
+            .button {
+                padding: 0.3em;
+                margin: 0.5em auto;
+                border: $dark-color 3px solid;
+                border-radius: 30px;
+                width: 30vw;
+                margin: 0.5em 0;
+                background-color: $highlight-color;
+
+                &:hover {
+                    border-color: $extra-color;
+                }
+
+                &:active {
+                    background-color: $extra-color;
+                }
             }
 
             .weather {
@@ -106,6 +166,7 @@ body {
             img {
                 width: 60vw;
                 border-radius: 30px;
+                border: $light-color solid 3px;
             }
         }
         .hide {
@@ -127,7 +188,7 @@ body {
 
     /* FOOTER */
     footer {
-        background-color: #003049;
+        background-color: $dark-color;
         grid-area: ft;
         display: flex;
         justify-content: center;

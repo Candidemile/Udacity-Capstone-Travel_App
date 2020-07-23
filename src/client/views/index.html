@@ -21,7 +21,8 @@
                 <input type="text" name="destination" id="destination" placeholder="destination" required>
                 <input type="date" name="date" id="date">
                 <input type="submit" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return Client.handleSubmit(event)" value="Submit" required>
+                    onsubmit="return Client.handleSubmit(event)" class="button" value="Submit" required>
+                <!-- <h3 class="button" onclick="return Client.handleSubmit(event)">Submit</h3> -->
             </form>
         </section>
 
@@ -31,7 +32,7 @@
                 <img src="https://media.giphy.com/media/cIbJ5bBlNLxynVGYzb/giphy.gif" alt="">
             </article>
             <article id="new-trip" class="trip content hide">
-                <h3 class="dark">My trip to:</h3>
+                <p class="dark">my trip to:</p>
                 <h3 id="new-trip-destination" class="dark"></h3>
                 <h3 id="new-trip-date" class="dark"></h3>
                 <p id="new-trip-countdown" class="dark"></p>
@@ -56,16 +57,16 @@
                     <progress id="new-trip-covid-progress" value="32" max="100"> 32% </progress>
                     <p id="new-trip-covid-growth"></p>
                 </aside>
-                <h3 class="button save dark">Save This Trip</h3>
+                <h3 class="button save dark">Save</h3>
             </article>
         </section>
 
         <!-- Trip Template -->
         <template id="trip-template">
             <article id="" class="trip content">
-                <h3 class="dark">My trip to:</h3>
-                <h3 class="dark destination"></h3>
-                <h3 class="dark date"></h3>
+                <p class="dark">my trip to:</p>
+                <h3 class="dark destination bold highlight"></h3>
+                <h3 class="dark date bold highlight"></h3>
                 <p class="dark countdown"></p>
                 <figure class="content trip-image">
                     <img src="" alt="image">
@@ -85,7 +86,7 @@
                     <progress value="32" max="100"> 32% </progress>
                     <p></p>
                 </aside>
-                <h3 class="button save dark">Delete This Trip</h3>
+                <h3 class="button save dark">Delete</h3>
             </article>
         </template>
         <!-- Trips -->

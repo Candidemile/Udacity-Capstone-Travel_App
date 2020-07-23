@@ -8,7 +8,7 @@ export const displayTrip = (trip) => {
     // set destination
     tripDetails[1].textContent = `${trip.destination.city},${trip.destination.country}`;
     // set date
-    tripDetails[2].textContent = `Departing: ${trip.date}`;
+    tripDetails[2].textContent = `departing: ${trip.date}`;
     // set countdown
     tripDetails[3].textContent = `${trip.countdown} days left`;
     // set image

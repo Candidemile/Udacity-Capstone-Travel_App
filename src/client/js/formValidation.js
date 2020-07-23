@@ -48,7 +48,6 @@ async function handleSubmit(event) {
     });
     // function to handle save
     const save = () => {
-        console.log(document.getElementsByClassName('save')[0]);
         saveTrip(trip);
         document.getElementById('new-trip').classList.add('hide');
     };
