@@ -1,10 +1,12 @@
 /* Function to update UI for saved trip */
 export const displayTrip = (trip) => {
     let template = document.getElementById('trip-template').content.cloneNode('true');
-    let tripDetails = template.firstElementChild.children;
+    // set id
+    template.firstElementChild.id = trip.id;
     // set values for trip:
+    let tripDetails = template.firstElementChild.children;
     // set destination
-    tripDetails[1].textContent = `${trip.destination.city}, ${trip.destination.country}`;
+    tripDetails[1].textContent = `${trip.destination.city},${trip.destination.country}`;
     // set date
     tripDetails[2].textContent = `Departing: ${trip.date}`;
     // set countdown
@@ -24,6 +26,19 @@ export const displayTrip = (trip) => {
     tripDetails[7].children[2].value = 50;
     tripDetails[7].children[2].textContent = '50%';
     tripDetails[7].children[3].textContent = `The growth rate is ${trip.covid.growth}`;
+    // function to delete trip
+    const deleteTrip = (event) => {
+        let trips = JSON.parse(localStorage.trips);
+        // console.log('deleting\n', trips, '\n', event.target);
+        trips.forEach((element) => {
+            if (element.id == event.target.parentElement.id) {
+                trips.splice(trips.indexOf(element), 1);
+                localStorage.trips = JSON.stringify(trips);
+                event.target.parentElement.classList.add('hide');
+            }
+        });
+    };
+    tripDetails[8].onclick = deleteTrip;
     // add saved trip to the web page
     let trips = document.getElementsByClassName('trips')[0];
     trips.appendChild(template);

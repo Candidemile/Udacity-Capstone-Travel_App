@@ -7,6 +7,9 @@ export const saveTrip = (trip) => {
     if (localStorage.trips != undefined) {
         trips = JSON.parse(localStorage.trips);
     }
+    // generate id
+    let id = new Date().getTime();
+    trip.id = id;
     trips.push(trip);
     localStorage.trips = JSON.stringify(trips);
     console.log(localStorage.trips);
@@ -24,6 +27,6 @@ export const displayTrips = () => {
         return new Date(trip1.date) - new Date(trip2.date);
     };
     trips = trips.sort(sortTripsByDate);
-    console.log(trips);
+    // console.log(trips);
     trips.forEach(displayTrip);
 };
