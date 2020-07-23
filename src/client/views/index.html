@@ -20,22 +20,22 @@
                 <input type="text" name="departure" id="departure" placeholder="departure" required>
                 <input type="text" name="destination" id="destination" placeholder="destination" required>
                 <input type="date" name="date" id="date">
-                <input type="submit" onclick="return Client.handleSubmit(event)"
+                <input type="submit" id="submit" onclick="return Client.handleSubmit(event)"
                     onsubmit="return Client.handleSubmit(event)" class="button" value="Submit" required>
                 <!-- <h3 class="button" onclick="return Client.handleSubmit(event)">Submit</h3> -->
             </form>
         </section>
 
-        <section class="content">
+        <section class="content new-trip">
             <!-- New Trip -->
             <article id="loading" class="content hide">
                 <img src="https://media.giphy.com/media/cIbJ5bBlNLxynVGYzb/giphy.gif" alt="">
             </article>
             <article id="new-trip" class="trip content hide">
-                <p class="dark">my trip to:</p>
-                <h3 id="new-trip-destination" class="dark"></h3>
-                <h3 id="new-trip-date" class="dark"></h3>
-                <p id="new-trip-countdown" class="dark"></p>
+                <p class="dark head">my trip to:</p>
+                <h3 id="new-trip-destination" class="dark destination"></h3>
+                <h3 id="new-trip-date" class="dark date"></h3>
+                <p id="new-trip-countdown" class="dark countdown"></p>
                 <figure class="content">
                     <img id="new-trip-image" src="" alt="image">
                     <figcaption id="new-trip-image-text"></figcaption>
@@ -64,7 +64,7 @@
         <!-- Trip Template -->
         <template id="trip-template">
             <article id="" class="trip content">
-                <p class="dark">my trip to:</p>
+                <p class="dark head">my trip to:</p>
                 <h3 class="dark destination bold highlight"></h3>
                 <h3 class="dark date bold highlight"></h3>
                 <p class="dark countdown"></p>
