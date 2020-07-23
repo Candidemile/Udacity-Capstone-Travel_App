@@ -14,10 +14,16 @@ const fetchCovidApi = async (country) => {
     } else {
         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
     }
+    return 'no data';
 };
 // This function processes COVID data of one day for given country and returns a string describing the level of COVID-19 growth cases
 const getCovidGrowthLevel = (data) => {
-    let level = data.Active / data.Recovered;
+    let level = 'no data';
+    console.log(data);
+    if (data.Active & data.Recovered) {
+        level = data.Active / data.Recovered;
+    }
+
     // console.log(data, level);
     if (level < 0.25) {
         return 'low';
