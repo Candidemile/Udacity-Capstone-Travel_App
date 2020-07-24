@@ -1,17 +1,91 @@
-@media screen and (min-width: 600px) {
+// styles for tablet devices
+@media screen and (min-width: 600px) and (max-width: 1024px) {
     body {
         form.content {
-            background-color: red;
-            width: 90%;
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-            justify-content: center;
+            width: 80%;
+            display: grid;
+            grid-template-areas: "dep dest" "date submit";
+            grid-column: 50% 50%;
 
             input {
-                flex-basis: 30%;
-                max-width: 50%;
                 margin: 1em 1em;
+                width: 80%;
+            }
+
+            #departure {
+                grid-area: dep;
+            }
+
+            #destination {
+                grid-area: dest;
+            }
+
+            #date {
+                grid-area: date;
+            }
+
+            #submit {
+                grid-area: submit;
+                width: 60%;
+                justify-self: center;
+            }
+        }
+    }
+
+    main {
+        article#loading {
+            grid-template-columns: none;
+        }
+
+        section article.content {
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-template-rows: auto;
+            grid-template-areas: "head head countdown countdown" "dest dest date date" "img img weather weather"
+                "img img  flight flight" "img img covid covid" ". . delete delete";
+
+            .head {
+                grid-area: head;
+            }
+
+            .destination {
+                grid-area: dest;
+            }
+
+            .date {
+                grid-area: date;
+            }
+
+            .countdown {
+                grid-area: countdown;
+            }
+
+            figure {
+                grid-area: img;
+                width: 100%;
+
+                img {
+                    width: 95%;
+                }
+            }
+
+            .weather {
+                grid-area: weather;
+                flex-direction: column;
+            }
+
+            .flight {
+                grid-area: flight;
+            }
+
+            .covid {
+                grid-area: covid;
+                text-align: center;
+            }
+
+            .button {
+                grid-area: delete;
+                justify-self: center;
             }
         }
     }

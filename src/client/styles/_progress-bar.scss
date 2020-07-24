@@ -1,0 +1,29 @@
+// style progress bar
+
+// colors for levels
+$lo: green;
+$moderate: blue;
+$high: yellow;
+$very-high: orange;
+$extreme: red;
+
+body {
+    progress {
+        color: $high;
+        height: 1.5em;
+        border-radius: 0.5em;
+        background: #faf3dd;
+
+        // &::-webkit-progress-value {
+        //     background: red;
+        // }
+        &::-moz-progress-bar {
+            /* style rules */
+            background-color: $high;
+        }
+    }
+    progress::-webkit-progress-value {
+        border-radius: 12px;
+        background-color: $high;
+    }
+}

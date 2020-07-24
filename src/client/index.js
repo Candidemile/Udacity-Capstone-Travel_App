@@ -2,6 +2,9 @@
 import './styles/normalize.scss';
 import './styles/style.scss';
 import './styles/_main.scss';
+import './styles/_tablet.scss';
+import './styles/_desktop.scss';
+import './styles/_progress-bar.scss';
 
 // import JS
 import { handleSubmit } from './js/formValidation.js';
