@@ -47,7 +47,9 @@ async function handleSubmit(event) {
         trip = res;
     });
     // function to handle save
-    const save = () => {
+    const save = (event) => {
+        // added "stopImmediatePropagation" to stop multiple listeners being called
+        event.stopImmediatePropagation();
         saveTrip(trip);
         document.getElementById('new-trip').classList.add('hide');
     };
