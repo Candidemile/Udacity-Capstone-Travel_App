@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const fetchPixabayApi = async (city = '', country = '') => {
     let url = 'https://pixabay.com/api/?';
     const apikey = '17345474-3a60c5bdac118145706a5886a';
-    url = `${url}key=${apikey}&q=${city}+${country}&category=travel&image_type=photo`;
+    url = `${url}key=${apikey}&q=${city}+${country}&category=travel`;
     console.log(url);
 
     let response = await fetch(url);

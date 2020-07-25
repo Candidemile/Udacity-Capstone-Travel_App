@@ -23,6 +23,7 @@ const trip = {
         longitude: '',
         population: ''
     },
+    id: '',
     date: '',
     countdown: '',
     weather: {

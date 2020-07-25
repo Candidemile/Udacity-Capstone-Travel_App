@@ -40,22 +40,23 @@ async function handleSubmit(event) {
     // }, 3000);
 
     console.log('::: Form is valid :::\n::: Form is Submitted :::');
-    fetchTripData(data).then((res) => {
+    trip = await fetchTripData(data).then((res) => {
         document.getElementById('loading').classList.add('hide');
-        console.log(res);
+        // console.log(res);
         displayNewSearch(res);
-        trip = res;
+        return res;
     });
+    // save trip in session storage
+    sessionStorage.newTrip = JSON.stringify(trip);
+
     // function to handle save
-    const save = (event) => {
-        // added "stopImmediatePropagation" to stop multiple listeners being called
-        event.stopImmediatePropagation();
-        saveTrip(trip);
-        document.getElementById('new-trip').classList.add('hide');
-    };
-    let saver = save(event);
-    console.log(saver);
-    document.getElementsByClassName('save')[0].addEventListener('click', saver);
+    // const save = (event) => {
+    //     // added "stopImmediatePropagation" to stop multiple listeners being called
+    //     event.stopImmediatePropagation();
+    //     saveTrip(trip);
+    //     document.getElementById('new-trip').classList.add('hide');
+    // };
+    // document.getElementsByClassName('save')[0].addEventListener('click', save);
 }
 
 export { handleSubmit };

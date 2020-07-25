@@ -19,7 +19,6 @@ export const displayNewSearch = (trip) => {
     document.getElementById('new-trip-image').src = trip.image;
     // new covid data
     let covidData = displayCovidLevel(trip.covid.level);
-    console.log(covidData);
     document.getElementById('new-trip-covid-level').textContent = `${trip.destination.country} has ${trip.covid
         .level} level of COVID-19 on ${new Date().toString().slice(4, 15)}`;
     document.getElementById('new-trip-covid-growth').textContent = `The growth rate is ${trip.covid.growth}`;

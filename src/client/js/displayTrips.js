@@ -1,7 +1,9 @@
 import { displayTrip } from './displayTrip';
 
 // function to save trip in localStorage
-export const saveTrip = (trip) => {
+export const saveTrip = () => {
+    let trip = JSON.parse(sessionStorage.newTrip);
+    console.log('Saving..');
     let trips = [];
     // create trips if it doesn't exist
     if (localStorage.trips != undefined) {
@@ -13,6 +15,7 @@ export const saveTrip = (trip) => {
     trips.push(trip);
     localStorage.trips = JSON.stringify(trips);
     console.log('trip is saved: ', trip.destination.city);
+    document.getElementById('new-trip').classList.add('hide');
     displayTrip(trip);
 };
 
