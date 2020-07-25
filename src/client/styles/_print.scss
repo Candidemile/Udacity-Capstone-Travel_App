@@ -1,0 +1,10 @@
+// styles for print
+@media print {
+    html {
+        * {
+            background-color: white !important;
+            border-color: black !important;
+            color: black !important;
+        }
+    }
+}
