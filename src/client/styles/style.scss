@@ -18,7 +18,13 @@ $extra-color: #1982c4;
 $highlight-color: #fcf6bd;
 $aux-color: #f2b5d4;
 
+html {
+    height: 100%;
+}
 body {
     font-family: $main-font;
     background-color: $light-color;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }

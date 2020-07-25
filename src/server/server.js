@@ -62,7 +62,7 @@ app.listen(port, function() {
 
 // post request about trip
 app.post('/trip', async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     // set departure city and date
     trip.departure = req.body.departure;
     trip.date = req.body.date;

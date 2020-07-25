@@ -25,9 +25,11 @@ $highlight-color: #fcf6bd;
 $aux-color: #f2b5d4;
 
 /* BODY Styles */
+
 body {
-    font-family: $main-font;
-    background-color: $light-color;
+    main {
+        flex: 1 0 auto;
+    }
 
     .dark {
         color: $dark-color;
@@ -237,6 +239,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0;
 
         h1 {
             margin: 1vh;
