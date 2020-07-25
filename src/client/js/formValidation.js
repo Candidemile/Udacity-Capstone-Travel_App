@@ -53,7 +53,9 @@ async function handleSubmit(event) {
         saveTrip(trip);
         document.getElementById('new-trip').classList.add('hide');
     };
-    document.getElementsByClassName('save')[0].addEventListener('click', save);
+    let saver = save(event);
+    console.log(saver);
+    document.getElementsByClassName('save')[0].addEventListener('click', saver);
 }
 
 export { handleSubmit };

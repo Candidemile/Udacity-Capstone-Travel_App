@@ -51,13 +51,12 @@ app.use(express.static('dist'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-console.log(__dirname);
 
 // designates what port the app will listen to for incoming requests
 const port = process.env.PORT || 80;
 app.listen(port, function() {
-    console.log('Travel App is listening on port 8081!');
-    console.log('Base trip variable:\n', trip);
+    console.log(`*** Travel App is listening on port ${port}! ***`);
+    // console.log('Base trip variable:\n', trip);
 });
 
 // post request about trip
@@ -80,9 +79,9 @@ app.post('/trip', async (req, res) => {
     trip.destination.country = countryData.country;
     trip.destination.population = countryData.population;
     // fetch weather data from weatherbit API
-    console.log(trip);
+    // console.log(trip);
     let weatherData = await fetchWeatherbitApi(trip.destination.latitude, trip.destination.longitude, trip.date);
-    console.log(weatherData);
+    // console.log(weatherData);
     trip.weather.temperature = weatherData.temperature;
     trip.weather.icon = weatherData.weather_icon;
     trip.weather.description = weatherData.weather_description;
@@ -94,13 +93,11 @@ app.post('/trip', async (req, res) => {
     trip.flight.carrier = flightData.carrier;
     trip.flight.direct = flightData.direct;
     // fetch COVID data by covidAPI
-    console.log(trip);
+    // console.log(trip);
     let covidData = await covid.fetchCovidApi(trip.destination.country);
-    console.log(covidData, trip.destination.population);
+    // console.log(covidData, trip.destination.population);
     trip.covid.growth = covid.getCovidGrowthLevel(covidData);
     trip.covid.level = covid.getCovidRiskLevel(covidData, trip.destination.population);
-
-    console.log(trip);
 
     res.send(trip);
 });

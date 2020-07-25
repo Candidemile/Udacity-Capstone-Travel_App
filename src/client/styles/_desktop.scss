@@ -1,3 +1,28 @@
 // styles for laptop and desktop devices
 @media screen and (min-width: 1024px) {
+    body {
+        main {
+            article#loading {
+                width: 48vw;
+
+                img {
+                    width: 80%;
+                    justify-self: center;
+                }
+            }
+
+            article#new-trip {
+                width: 48vw;
+            }
+
+            section.trips {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                article {
+                    width: 48vw;
+                }
+            }
+        }
+    }
 }
