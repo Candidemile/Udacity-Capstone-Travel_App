@@ -17,11 +17,11 @@
         <section class="content">
             <form class="form content" onsubmit="return Client.handleSubmit(event)" method="post" action="/trip"
                 target="_blank">
-                <input type="text" name="departure" id="departure" placeholder="departure" required>
-                <input type="text" name="destination" id="destination" placeholder="destination" required>
-                <input type="date" name="date" id="date">
-                <input type="submit" id="submit" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return Client.handleSubmit(event)" class="button" value="Submit" required>
+                <input type="text" name="departure" id="departure" class="dark" placeholder="departure" required>
+                <input type="text" name="destination" id="destination" class="dark" placeholder="destination" required>
+                <input type="date" name="date" id="date" class="dark">
+                <input type="submit" id="submit" class="dark" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)" class="button dark" value="Submit" required>
                 <!-- <h3 class="button" onclick="return Client.handleSubmit(event)">Submit</h3> -->
             </form>
         </section>
