@@ -14,6 +14,8 @@
 // $extra-color: #ffa69e;
 // $highlight-color: #b8f2e6;
 // $aux-color: #aed9e0;
+
+// variables
 $main-font: "Armata", sans-serif;
 $dark-color: #6a4c93;
 $light-color: hsla(54, 91%, 86%, 0.5);
@@ -115,6 +117,10 @@ body {
         align-items: center;
         justify-content: center;
 
+        #loading {
+            padding: 5vh 0;
+        }
+
         article {
             width: 90vw;
             border: $dark-color 5px solid;
@@ -131,7 +137,7 @@ body {
                 margin-top: 0.5em;
             }
 
-            h3 {
+            h3:first-of-type {
                 margin-bottom: 0.3em;
             }
 

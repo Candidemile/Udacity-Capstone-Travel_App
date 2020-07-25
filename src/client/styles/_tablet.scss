@@ -46,23 +46,28 @@
 
             .head {
                 grid-area: head;
+                justify-self: center;
             }
 
             .destination {
                 grid-area: dest;
+                justify-self: center;
             }
 
             .date {
                 grid-area: date;
+                justify-self: center;
             }
 
             .countdown {
                 grid-area: countdown;
+                justify-self: center;
             }
 
             figure {
                 grid-area: img;
                 width: 100%;
+                justify-self: center;
 
                 img {
                     width: 95%;
@@ -72,20 +77,24 @@
             .weather {
                 grid-area: weather;
                 flex-direction: column;
+                justify-self: center;
             }
 
             .flight {
                 grid-area: flight;
+                justify-self: center;
             }
 
             .covid {
                 grid-area: covid;
                 text-align: center;
+                justify-self: center;
             }
 
             .button {
                 width: 20vw;
                 grid-area: delete;
+                justify-self: center;
                 justify-self: center;
             }
         }

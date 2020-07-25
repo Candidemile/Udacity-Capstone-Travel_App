@@ -10,6 +10,7 @@ import './styles/_progress-bar.scss';
 import { handleSubmit } from './js/formValidation.js';
 import './js/displayTrip';
 import { saveTrip, displayTrips } from './js/displayTrips';
+// import { displayCovidLevel } from './js/displayCovidLevel';
 
 // export JS function
 export { handleSubmit };

@@ -1,5 +1,5 @@
 // function to display progress bar for COVID-19 level
-const displayCovidLevel = (level) => {
+export const displayCovidLevel = (level) => {
     // 'low' 'moderate' 'high' 'very high''extreme' 'no data';
     // const applyStyle = (level, value) => {
     //     document.querySelector('article aside > progress').classList.add(level);
@@ -14,7 +14,7 @@ const displayCovidLevel = (level) => {
         case 'high':
             return [ 'high', 60 ];
         case 'very high':
-            return [ 'very high', 80 ];
+            return [ 'very-high', 80 ];
         case 'extreme':
             return [ 'extreme', 100 ];
         default:

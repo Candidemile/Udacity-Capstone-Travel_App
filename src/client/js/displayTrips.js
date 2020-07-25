@@ -12,6 +12,7 @@ export const saveTrip = (trip) => {
     trip.id = id;
     trips.push(trip);
     localStorage.trips = JSON.stringify(trips);
+    console.log('trip is saved: ', trip.destination.city);
     displayTrip(trip);
 };
 

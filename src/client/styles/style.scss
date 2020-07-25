@@ -7,3 +7,17 @@
 // add fonts
 @import url("https://fonts.googleapis.com/css2?family=Armata&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;0,900;1,200;1,400&display=swap");
+
+// variables
+$main-font: "Armata", sans-serif;
+$dark-color: #6a4c93;
+$light-color: hsla(54, 91%, 86%, 0.5);
+$border-color: #fcf6bd;
+$extra-color: #1982c4;
+$highlight-color: #fcf6bd;
+$aux-color: #f2b5d4;
+
+body {
+    font-family: $main-font;
+    background-color: $light-color;
+}
