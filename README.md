@@ -1,18 +1,20 @@
 # Capstone Project: Travel App
+<img src="https://github.com/Candidemile/Udacity_Capstone_Travel_App/blob/master/src/client/media/favicon.png?raw=true" width=150>
 
 ## Overview
-This project requires you to build out a travel app that, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs. Given that this is the Capstone project, it's highly encouraged for you to go above and beyond, adding additional functionality and customization to truly stand out with a project you are proud to have at the top of your portfolio!
+This Travel app allows a user to enter **departure, destination and date** for a trip and provides information about the location like:
+**city, coutry, weather for that date based on historical data, available flight details, COVID-19 information for that country**.
+The app also allows to **save** trip information for later usage and **sorts** trips based on date.
+Requests are served by **Express.js** web server.
 
 ## Instructions
 `npm install` - run this to install all required packages
 
-`npm test` - for testing
+`npm run test` - for testing
 
-`npm build-dev` - for creating development build
+`npm run dev` - for creating development build
 
-`npm build-prod` - for creating production build
-
-## List of GIT commits:
+`npm run build` - for creating production build
 
 ## Langauges, frameworks and tools used
 
@@ -22,12 +24,18 @@ This project requires you to build out a travel app that, at a minimum, obtains 
 1. **Jest**
 1. **Node.js(Express)**
 1. **Webpack**
+1. **Eslint**
+1. **Babel**
 
-## Your project must:
+## APIs used:
 
-- [] Be set up with Webpack, Express, Node, and Sass, and Service Workers
-
+* [Geonames](https://www.geonames.org/)
+* [REST Countries](https://restcountries.eu/)
+* [Weatherbit](https://www.weatherbit.io/api)
+* [Covid](https://covid19api.com/)
+* [Pixabay](https://pixabay.com/api/docs/)
+* [Skyscanner](https://rapidapi.com/skyscanner/api/skyscanner-flight-search)
 
 
 ## Extras
-
+This app is build based on [Udacity](https://www.udacity.com/) **Front End Web Developer Capstone Project** requirements with addition of extra features.
