@@ -4,7 +4,7 @@
     "description": "Capstone Project: Travel App",
     "main": "index.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest --verbose",
         "watch:test": "jest --watch",
         "flow": "flow",
         "start": "node src/server/server.js",
