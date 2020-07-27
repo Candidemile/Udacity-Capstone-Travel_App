@@ -1,9 +1,8 @@
 // This function gets weather historic data based on city, country, start date, end date from WeatherbitAPI
 const fetch = require('node-fetch');
 
-const fetchWeatherbitApi = async (latitude, longitude, date) => {
+const fetchWeatherbitApi = async (latitude, longitude, date, apikey) => {
     let url = 'https://api.weatherbit.io/v2.0/history/hourly?';
-    const apikey = '1d52fb608d9c469da6af57ee37c93a9b';
     let lastYearDate = date.split('-');
     lastYearDate[0] = (parseInt(lastYearDate[0]) - 1).toString();
     lastYearDate = lastYearDate.join('-');

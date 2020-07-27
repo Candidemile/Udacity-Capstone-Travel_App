@@ -4,7 +4,7 @@ const fetchCovidApi = async (country) => {
     let url = 'https://api.covid19api.com/total/country/' + country;
 
     let response = await fetch(url);
-    console.log(response.status, response.statusText, response.ok);
+    console.log('COVID-19 API: ', response.status, response.statusText, response.ok);
 
     if (response.ok) {
         let data = await response.json();
@@ -19,7 +19,7 @@ const fetchCovidApi = async (country) => {
 // This function processes COVID data of one day for given country and returns a string describing the level of COVID-19 growth cases
 const getCovidGrowthLevel = (data) => {
     let level = 'no data';
-    console.log(data);
+    // console.log(data);
     if (data.Active & data.Recovered) {
         level = data.Active / data.Recovered;
     }

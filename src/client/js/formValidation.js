@@ -1,10 +1,9 @@
 import fetchTripData from './app';
 import { displayNewSearch } from './displayNewSearch';
-import { saveTrip } from './displayTrips';
 
 // function that handles new search submit
 async function handleSubmit(event) {
-    console.log('::: Starting Form Validation :::');
+    console.info('::: Starting Form Validation :::');
     event.preventDefault();
     // get input from the form
     let departure = document.getElementById('departure').value;
@@ -16,7 +15,7 @@ async function handleSubmit(event) {
         date: date
     };
     let trip;
-    console.log(departure, destination, date);
+    console.info(departure, destination, date);
     // Validate input
     const reg = /[a-zA-Z]+/;
     const regDate = /^(202\d{1})-(\d{1,2})-(\d{1,2})$/g;
@@ -39,7 +38,7 @@ async function handleSubmit(event) {
     //     document.getElementById('loading').classList.add('hide');
     // }, 3000);
 
-    console.log('::: Form is valid :::\n::: Form is Submitted :::');
+    console.info('::: Form is valid :::\n::: Form is Submitted :::');
     trip = await fetchTripData(data).then((res) => {
         document.getElementById('loading').classList.add('hide');
         // console.log(res);

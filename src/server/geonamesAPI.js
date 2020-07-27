@@ -1,8 +1,8 @@
 // fetch geonames API with city and get latitude, longitude, country
 const fetch = require('node-fetch');
 
-const fetchGeonamesApi = async (city = '') => {
-    const url = 'http://api.geonames.org/search?username=candid_emile&type=json&name=';
+const fetchGeonamesApi = async (city = '', key) => {
+    const url = `http://api.geonames.org/search?username=${key}&type=json&name=`;
 
     let response = await fetch(url + city);
     console.log('Geonames API: ', response.status, response.statusText, response.ok);

@@ -69,7 +69,7 @@ app.post('/trip', async (req, res) => {
     // get countdown number
     trip.countdown = countdown(req.body.date).toString();
     // fetch destination data by GeonamesAPI
-    let destinationData = await fetchGeonamesApi(req.body.destination);
+    let destinationData = await fetchGeonamesApi(req.body.destination, process.env.GEONAMES_KEY);
     trip.destination.city = destinationData.city;
     trip.destination.country_code = destinationData.country_code;
     trip.destination.latitude = destinationData.latitude;
@@ -81,15 +81,25 @@ app.post('/trip', async (req, res) => {
     trip.destination.population = countryData.population;
     // fetch weather data from weatherbit API
     // console.log(trip);
-    let weatherData = await fetchWeatherbitApi(trip.destination.latitude, trip.destination.longitude, trip.date);
+    let weatherData = await fetchWeatherbitApi(
+        trip.destination.latitude,
+        trip.destination.longitude,
+        trip.date,
+        process.env.WEATHERBIT_KEY
+    );
     // console.log(weatherData);
     trip.weather.temperature = weatherData.temperature;
     trip.weather.icon = weatherData.weather_icon;
     trip.weather.description = weatherData.weather_description;
     // fetch image url by pixabay API
-    trip.image = await fetchPixabayApi(req.body.destination, '');
+    trip.image = await fetchPixabayApi(req.body.destination, '', process.env.PIXABAY_KEY);
     // fetch flight data by skyscannerAPI
-    let flightData = await getFlightPrice(req.body.departure, req.body.destination, req.body.date);
+    let flightData = await getFlightPrice(
+        req.body.departure,
+        req.body.destination,
+        req.body.date,
+        process.env.SKYSCANNER_KEY
+    );
     trip.flight.price = flightData.price;
     trip.flight.carrier = flightData.carrier;
     trip.flight.direct = flightData.direct;
@@ -101,4 +111,5 @@ app.post('/trip', async (req, res) => {
     trip.covid.level = covid.getCovidRiskLevel(covidData, trip.destination.population);
 
     res.send(trip);
+    console.info('** This request has been processed:\n', req.body, ' **');
 });

@@ -13,8 +13,15 @@ import './js/displayTrip';
 import { saveTrip, displayTrips } from './js/displayTrips';
 
 // export JS function
-export { handleSubmit };
-export { saveTrip };
+// export { handleSubmit };
+// export { saveTrip };
 
 // Main
-displayTrips();
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+    // display all trips from localStorage
+    displayTrips();
+    // add eventListeners
+    document.getElementById('submit').onclick = handleSubmit;
+    document.getElementsByClassName('save').onclick = saveTrip;
+});

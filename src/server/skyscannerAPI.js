@@ -1,13 +1,12 @@
 const fetch = require('node-fetch');
 
 // this function returns the lowest ticket price based on two points (departure, destination)
-const getFlightPrice = async (from, to, date) => {
+const getFlightPrice = async (from, to, date, key) => {
     // This function returns PlaceID based on the city
     const getPlaceID = async (city) => {
         let url =
             'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=' +
             city;
-        let key = 'f6a641105amsh3901a1f0f0ca125p1afce6jsnb6d0dd468558';
 
         let response = await fetch(url, {
             method: 'GET',
@@ -43,7 +42,6 @@ const getFlightPrice = async (from, to, date) => {
     };
 
     // main body of the function
-    let key = 'f6a641105amsh3901a1f0f0ca125p1afce6jsnb6d0dd468558';
     let places = await convert(from, to);
     if (places == 'no data') {
         return {
@@ -56,7 +54,6 @@ const getFlightPrice = async (from, to, date) => {
     let departure = places[0];
     let destination = places[1];
     let url = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${departure}/${destination}/${date}`;
-    // console.log(url);
 
     let response = await fetch(url, {
         method: 'GET',
